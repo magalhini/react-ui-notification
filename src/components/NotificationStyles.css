@@ -1,0 +1,43 @@
+.c-notification {
+  border-radius: 0 4px 4px 0;
+  font-family: sans-serif;
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  padding: 1em;
+  position: fixed;
+  min-width: 5em;
+  text-align: center;
+  transition: .5s cubic-bezier(0.87, 0.02, 0.4, 1.1);
+  opacity: 0;
+  left: 0;
+  transform: translateX(-100%);
+  cursor: pointer;
+}
+
+.c-notification.is-at-top {
+  top: 1em;
+}
+
+.c-notification.is-at-bottom {
+  bottom: 1em;
+}
+
+.c-notification--bar {
+  width: 100%;
+  transform: translateY(-100%);
+  left: 0;
+  top: 0;
+  text-align: left;
+  padding: 1em;
+}
+
+
+.c-notification.is-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.c-notification--bar.is-active {
+  transform: translateY(0);
+  opacity: 1;
+}
