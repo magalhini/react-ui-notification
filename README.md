@@ -1,6 +1,8 @@
 # React UI Notification
 A simple component for flexible UI notifications using React.
 
+![Sample](https://cldup.com/a6T7BCVsYL.gif)
+
 See `src/main.js` for a sample usage of the Component.
 
 Example:
