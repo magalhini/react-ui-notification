@@ -7,13 +7,13 @@ module.exports = {
         main: [
             'webpack-dev-server/client?http://localhost:8080',
             'webpack/hot/only-dev-server',
-            './src/main.js',
+            './example/index.js'
         ]
     },
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, 'public'),
-        publicPath: '/public/'
+        path: path.join(__dirname, 'example'),
+        publicPath: '/example/'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -26,7 +26,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                include: path.join(__dirname, 'src'),
+                include: [path.join(__dirname, 'src'), path.join(__dirname, 'example')],
                 loader: 'babel',
                 query: {
                     cacheDirectory: true,

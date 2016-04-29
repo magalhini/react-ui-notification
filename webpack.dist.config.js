@@ -8,12 +8,12 @@ console.log('---------------------------------------------------');
 
 module.exports = {
     entry: {
-        main: ['./src/main.js',]
+        main: ['./example/index.js']
     },
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, 'public'),
-        publicPath: '/public/'
+        path: path.join(__dirname, 'example'),
+        publicPath: '/example/'
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
@@ -36,7 +36,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                include: path.join(__dirname, 'src'),
+                include: [path.join(__dirname, 'src'), path.join(__dirname, 'example')],
                 loader: 'babel',
                 query: {
                     cacheDirectory: true,

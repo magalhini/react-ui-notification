@@ -1,9 +1,7 @@
 /* jshint esversion:6 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Notification from './components/Notification';
-
-require('./styles.css');
+import Notification from '../src/components/Notification';
 
 class App extends React.Component {
   constructor() {
@@ -25,7 +23,6 @@ class App extends React.Component {
   }
 
   hideAlert1() {
-    console.log('hide 1')
     this.setState({
       notifications: {showAlert1: false}
     });
@@ -63,10 +60,20 @@ class App extends React.Component {
 
     return (
       <div>
-
-        <button onClick={this.showAlert1.bind(this)}>Trigger 1</button>
-        <button onClick={this.showAlert2.bind(this)}>Trigger 2</button>
-        <button onClick={this.showAlert3.bind(this)}>Trigger 3</button>
+          <h2>React UI Notifications</h2>
+          <hr/>
+          <div className="button-sample">
+              <button onClick={this.showAlert1.bind(this)}>Show on the bottom left</button>
+              <span>(needs click to dismiss)</span>
+          </div>
+          <div className="button-sample">
+              <button onClick={this.showAlert2.bind(this)}>Show on the top left</button>
+              <span>(self dismissing)</span>
+          </div>
+          <div className="button-sample">
+              <button onClick={this.showAlert3.bind(this)}>Show at full width</button>
+              <span>(self dismissing)</span>
+          </div>
 
         <Notification
           onDismiss={this.hideAlert1.bind(this)}
@@ -90,7 +97,6 @@ class App extends React.Component {
           position="full"
           message="Hello third">
         </Notification>
-
       </div>);
   }
 };

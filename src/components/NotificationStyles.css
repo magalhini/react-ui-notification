@@ -1,7 +1,7 @@
 .c-notification {
   border-radius: 0 4px 4px 0;
   font-family: sans-serif;
-  background: rgba(0,0,0,.75);
+  background: #05B2D2;
   color: #fff;
   padding: 1em;
   position: fixed;

@@ -18,7 +18,7 @@ class Notification extends React.Component {
 
   componentWillReceiveProps(props) {
     clearTimeout(this._dismissTimer);
-    
+
     if (props.isActive) {
       this.refs.notification.classList.add('is-active');
     }
