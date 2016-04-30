@@ -1,4 +1,4 @@
-.c-notification {
+/*.c-notification {
   border-radius: 0 4px 4px 0;
   font-family: sans-serif;
   background: #05B2D2;
@@ -12,7 +12,7 @@
   left: 0;
   transform: translateX(-100%);
   cursor: pointer;
-}
+}*/
 
 .c-notification.is-at-top {
   top: 1em;

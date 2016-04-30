@@ -63,15 +63,15 @@ class App extends React.Component {
           <h2>React UI Notifications</h2>
           <hr/>
           <div className="button-sample">
-              <button onClick={this.showAlert1.bind(this)}>Show on the bottom left</button>
+              <button onClick={this.showAlert1.bind(this)}>Bottom left</button>
               <span>(needs click to dismiss)</span>
           </div>
           <div className="button-sample">
-              <button onClick={this.showAlert2.bind(this)}>Show on the top left</button>
+              <button onClick={this.showAlert2.bind(this)}>Top left</button>
               <span>(self dismissing)</span>
           </div>
           <div className="button-sample">
-              <button onClick={this.showAlert3.bind(this)}>Show at full width</button>
+              <button onClick={this.showAlert3.bind(this)}>Full width</button>
               <span>(self dismissing)</span>
           </div>
 

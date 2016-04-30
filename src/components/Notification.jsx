@@ -1,73 +1,93 @@
 /* jshint esversion:6 */
 import React from 'react';
-
-require('./NotificationStyles.css');
+import BaseStyle from './styles';
 
 class Notification extends React.Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.onDismiss = this.onDismiss.bind(this);
-  }
-
-  componentDidUpdate(props) {
-    if (!this.props.isActive) {
-      requestAnimationFrame(() => this.refs.notification.classList.remove('is-active'));
-    }
-  }
-
-  componentWillReceiveProps(props) {
-    clearTimeout(this._dismissTimer);
-
-    if (props.isActive) {
-      this.refs.notification.classList.add('is-active');
+        this.onDismiss = this.onDismiss.bind(this);
     }
 
-    if (this.props.autoDismiss && !this.props.isActive && props.isActive) {
-      this._dismissTimer = setTimeout(this.onDismiss, props.dismissAfter);
+    componentDidUpdate(props) {
+        if (!this.props.isActive) {
+            requestAnimationFrame(() => this.refs.notification.classList.remove('is-active'));
+        }
     }
-  }
 
-  onDismiss(props) {
-    this.props.onDismiss();
-    clearTimeout(this._dismissTimer);
-    this._dismissTimer = null;
-  }
+    componentWillReceiveProps(props) {
+        clearTimeout(this._dismissTimer);
 
-  componentWillUnmount() {
-    clearTimeout(this._dismissTimer);
-  }
+        if (props.isActive) {
+            this.refs.notification.classList.add('is-active');
+        }
 
-  renderStyle(className) {
-    switch (this.props.position) {
-      case 'top':
-        return `${className} is-at-top`;
-      case 'bottom':
-        return `${className} is-at-bottom`;
-      case 'full':
-        return `${className} ${className}--bar`;
-      default:
-        return className;
+        if (this.props.autoDismiss && !this.props.isActive && props.isActive) {
+            this._dismissTimer = setTimeout(this.onDismiss, props.dismissAfter);
+        }
     }
-  }
 
-  render() {
-    const {message, isActive, className} = this.props;
-    const style = this.renderStyle(className);
+    onDismiss(props) {
+        this.props.onDismiss();
+        clearTimeout(this._dismissTimer);
+        this._dismissTimer = null;
+    }
 
-    return (
-      <div className={style} ref="notification"
-        onClick={this.onDismiss}>
-        <span>{this.props.message}</span>
-      </div>
-    );
-  }
+    componentWillUnmount() {
+        clearTimeout(this._dismissTimer);
+    }
+
+    getClassName(className) {
+        switch (this.props.position) {
+        case 'top':
+            return `${className}--top`;
+        case 'bottom':
+            return `${className}--bottom`;
+        case 'full':
+            return `${className}--full`;
+        default:
+            return className;
+        }
+    }
+
+    renderStyles(position, isActive) {
+        if (position === 'bottom') {
+            if (isActive) return Object.assign({}, BaseStyle.base, BaseStyle.baseAtBottomActive);
+            else return Object.assign({}, BaseStyle.base, BaseStyle.baseBottomOffset);
+        } else if (position === 'top') {
+            if (isActive) return Object.assign({}, BaseStyle.base, BaseStyle.baseActive);
+            else return Object.assign({}, BaseStyle.base, BaseStyle.baseTopOffset);
+        } else if (position === 'full') {
+            if (isActive) return Object.assign({}, BaseStyle.fullWidth, BaseStyle.fullWidthActive);
+            else return Object.assign({}, BaseStyle.fullWidth);
+        } else {
+            return BaseStyle.base;
+        }
+    }
+
+    render() {
+        const { message, isActive, className, position } = this.props;
+        let classes = null;
+        let styles = this.renderStyles(position, isActive);
+
+        if (className) {
+            classes = this.getClassName(className);
+        }
+
+        return (
+            <div className={classes} ref="notification"
+                style={styles}
+                onClick={this.onDismiss}>
+                <span>{this.props.message}</span>
+            </div>
+        );
+    }
 }
 
 Notification.defaultProps = {
-  dismissAfter: 2000,
-  autoDismiss: true,
-  className: 'c-notification'
+    dismissAfter: 5000,
+    position: 'top',
+    autoDismiss: true,
 };
 
 export default Notification;

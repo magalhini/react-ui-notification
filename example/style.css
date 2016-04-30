@@ -10,6 +10,7 @@ html, body {
 body {
     font-family: sans-serif;
     max-width: 60em;
+    color: #3A4D71;
     padding: 3em;
     margin: auto;
     background-image: #d6dbde -webkit-linear-gradient(bottom, rgb(215,219,222) 0%, rgb(216,220,221) 60%, rgb(193,199,202) 100%);
@@ -19,21 +20,24 @@ body {
 
 button {
     padding: 1em 1.3em;
-    border: none;
-    background: #626265;
-    border-radius: 4px;
+    background: transparent;
+    border :3px solid #8C8CB7;
     outline: none;
     cursor: pointer;
     margin: 1em 1em 1em 0;
+    font-weight: bold;
     min-width: 15em;
     display: inline-block;
-    color: #fff;
-    font-size: 1em;
+    letter-spacing: 1px;
+    color: #3A4D71;
+    text-transform: uppercase;
+    font-size: .9em;
     transition: background .2s ease-in-out;
 }
 
 button:hover {
-    background: #727275;
+    background: #8C8CB7;
+    color: #fff;
 }
 
 button + span {
