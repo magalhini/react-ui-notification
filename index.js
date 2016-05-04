@@ -1,1 +1,1 @@
-module.exports = require('src/components/Notification.jsx');
+module.exports = require('.lib/react-ui-notification');

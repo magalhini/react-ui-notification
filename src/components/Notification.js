@@ -1,6 +1,6 @@
 /* jshint esversion:6 */
 import React from 'react';
-import BaseStyle from './styles';
+import Styles from './Styles';
 
 class Notification extends React.Component {
     constructor(props) {
@@ -52,16 +52,16 @@ class Notification extends React.Component {
 
     renderStyles(position, isActive) {
         if (position === 'bottom') {
-            if (isActive) return Object.assign({}, BaseStyle.base, BaseStyle.baseAtBottomActive);
-            else return Object.assign({}, BaseStyle.base, BaseStyle.baseBottomOffset);
+            if (isActive) return Object.assign({}, Styles.base, Styles.baseAtBottomActive);
+            else return Object.assign({}, Styles.base, Styles.baseBottomOffset);
         } else if (position === 'top') {
-            if (isActive) return Object.assign({}, BaseStyle.base, BaseStyle.baseActive);
-            else return Object.assign({}, BaseStyle.base, BaseStyle.baseTopOffset);
+            if (isActive) return Object.assign({}, Styles.base, Styles.baseActive);
+            else return Object.assign({}, Styles.base, Styles.baseTopOffset);
         } else if (position === 'full') {
-            if (isActive) return Object.assign({}, BaseStyle.fullWidth, BaseStyle.fullWidthActive);
-            else return Object.assign({}, BaseStyle.fullWidth);
+            if (isActive) return Object.assign({}, Styles.fullWidth, Styles.fullWidthActive);
+            else return Object.assign({}, Styles.fullWidth);
         } else {
-            return BaseStyle.base;
+            return Styles.base;
         }
     }
 

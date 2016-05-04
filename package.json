@@ -1,8 +1,8 @@
 {
-  "name": "React-UI-Notifications",
+  "name": "react-ui-notification",
   "version": "0.0.1",
-  "description": "A simple and flexibel UI notification component using React.",
-  "main": "main.js",
+  "description": "A simple and flexible UI notification component using React.",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --progress --colors",

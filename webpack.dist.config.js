@@ -1,23 +1,21 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 console.log('---------------------------------------------------');
-console.log('Here we go. If it fails, do not despair. Why weep?');
+console.log('Here we go. If it fails, do not despair. Why weep? ');
 console.log('---------------------------------------------------');
 
 module.exports = {
     entry: {
-        main: ['./example/index.js']
+        main: ['./src/components/Notification.js']
     },
     output: {
-        filename: '[name].js',
-        path: path.join(__dirname, 'example'),
-        publicPath: '/example/'
+        filename: 'react-ui-notification.js',
+        path: path.join(__dirname, 'lib'),
+        publicPath: '/lib/'
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
-        new ExtractTextPlugin('styles.[hash].css', { allChunks: true }),
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.DedupePlugin(),
@@ -30,7 +28,7 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js']
     },
     module: {
         loaders: [
@@ -40,7 +38,7 @@ module.exports = {
                 loader: 'babel',
                 query: {
                     cacheDirectory: true,
-                    presets: ['es2015', 'stage-0', 'react']
+                    presets: ['es2015', 'react']
                 }
             },
             {
