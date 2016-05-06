@@ -1,4 +1,3 @@
 node_modules
 .DS_Store
-lib
 _webpack.dist.config.js
