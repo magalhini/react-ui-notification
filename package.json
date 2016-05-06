@@ -8,6 +8,13 @@
     "start": "webpack-dev-server --progress --colors",
     "build": "`npm bin`/babel src/components/ -d lib"
   },
+  "keywords": [
+    "react",
+    "alert",
+    "notification",
+    "notification",
+    "snackbar"
+  ],
   "author": "Ricardo Magalhães <magalhini@gmail.com> (www.ricardofilipe.com)",
   "license": "ISC",
   "dependencies": {
