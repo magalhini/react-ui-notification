@@ -1,13 +1,8 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
+export default {
     base: {
         borderRadius: '0 4px 4px 0',
         fontFamily: 'sans-serif',
-        background: '#05B2D2',
+        background: '#05B2D8',
         color: '#fff',
         padding: '1em',
         position: 'fixed',
@@ -48,17 +43,17 @@ exports.default = {
     baseActive: {
         top: '1em',
         transform: 'translateX(0)',
-        opacity: 1
+        opacity: 1,
     },
 
     baseAtBottomActive: {
         bottom: '1em',
         opacity: 1,
-        transform: 'translateX(0)'
+        transform: 'translateX(0)',
     },
 
     fullWidthActive: {
         transform: 'translateY(0)',
-        opacity: 1
+        opacity: 1,
     }
-};
+}

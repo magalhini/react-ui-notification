@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Notification from '../src/components/Notification';
+import Styles from './ExampleStyling';
 
 class App extends React.Component {
   constructor() {
@@ -76,6 +77,7 @@ class App extends React.Component {
           </div>
 
         <Notification
+            styles={Styles}
           onDismiss={this.hideAlert1.bind(this)}
           isActive={shouldAlert1}
           position="bottom"

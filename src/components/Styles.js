@@ -13,6 +13,7 @@ export default {
         left: 0,
         transform: 'translateX(-100%)',
         cursor: 'pointer',
+        zIndex: 20
     },
 
     baseTopOffset: {
@@ -35,7 +36,8 @@ export default {
         cursor: 'pointer',
         position: 'fixed',
         textAlign: 'center',
-        padding: '1em'
+        padding: '1em',
+        zIndex: 20
     },
 
     baseActive: {

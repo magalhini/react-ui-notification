@@ -51,15 +51,17 @@ class Notification extends React.Component {
     }
 
     renderStyles(position, isActive) {
+        const styling = this.props.styles ? this.props.styles : Styles;
+
         if (position === 'bottom') {
-            if (isActive) return Object.assign({}, Styles.base, Styles.baseAtBottomActive);
-            else return Object.assign({}, Styles.base, Styles.baseBottomOffset);
+            if (isActive) return Object.assign({}, styling.base, styling.baseAtBottomActive);
+            else return Object.assign({}, styling.base, styling.baseBottomOffset);
         } else if (position === 'top') {
-            if (isActive) return Object.assign({}, Styles.base, Styles.baseActive);
-            else return Object.assign({}, Styles.base, Styles.baseTopOffset);
+            if (isActive) return Object.assign({}, styling.base, styling.baseActive);
+            else return Object.assign({}, styling.base, styling.baseTopOffset);
         } else if (position === 'full') {
-            if (isActive) return Object.assign({}, Styles.fullWidth, Styles.fullWidthActive);
-            else return Object.assign({}, Styles.fullWidth);
+            if (isActive) return Object.assign({}, styling.fullWidth, styling.fullWidthActive);
+            else return Object.assign({}, styling.fullWidth);
         } else {
             return Styles.base;
         }
